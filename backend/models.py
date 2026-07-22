@@ -1,8 +1,5 @@
-from sqlalchemy import Column, Integer, String
-from database import Base
 from sqlalchemy import Column, Integer, String, Float, DateTime
-from datetime import datetime
-from pydantic import BaseModel
+from database import Base
 from datetime import datetime
 
 
@@ -14,11 +11,6 @@ class UserDB(Base):
     email = Column(String, unique=True)
     password = Column(String)
 
-# class TransactionRequest(BaseModel):
-#     recipient: str
-#     amount: float
-#     purpose: str
-
 
 class Transaction(Base):
     __tablename__ = "transactions"
@@ -29,7 +21,3 @@ class Transaction(Base):
     amount = Column(Float)
     purpose = Column(String)
     created_at = Column(DateTime, default=datetime.utcnow)
-    created_at = Column(
-    DateTime,
-    default=datetime.utcnow
-)
